@@ -1,0 +1,24 @@
+name: testing
+
+on: [push, pull_request]
+
+jobs: 
+  test: 
+    runs-on: ubuntu-latest
+    strategy:
+        matrix:
+          ruby-version: ['2.6', '2.7', '3.0']
+    steps:
+      - name: testing
+        uses: actions/checkout@v4
+      - name: setUp
+        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+      - name: Install ruby
+        run: ruby ci
+      - name: run tests
+        run: ruby test
+
+
