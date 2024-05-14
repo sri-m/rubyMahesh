@@ -1,7 +1,7 @@
 name: My workflow
 on: [push, pull_request]
 jobs:
-  test:
+  check_single_file:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
