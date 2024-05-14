@@ -13,5 +13,4 @@ jobs:
         ruby-version: '2.3' # Not needed with a .ruby-version file
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - run: |
-        ruby 
-        ruby variables1.rb  
+        ruby
