@@ -1,7 +1,7 @@
 #local, global, constant, instance, class variables
 location = "hyderabad"  #use in same page
 $my_name = :Mahesh  #global variable  #use any page
-#global variable with symbol
+#global variable with symbol####
 My_full_name = "M Srinivasa Rao"
 age = 46
 Dob = "27-05-1979"   #use in class or modules
