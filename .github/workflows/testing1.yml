@@ -2,23 +2,17 @@ name: testing
 
 on: [push, pull_request]
 
-jobs: 
-  test: 
-    runs-on: ubuntu-latest
-    strategy:
+jobs:
+    build:
+      runs-on: ubuntu-16.04
+      strategy:
         matrix:
-          ruby-version: ['2.6', '2.7', '3.0']
-    steps:
-      - name: testing
-        uses: actions/checkout@v4
-      - name: setUp
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
-        with:
-          ruby-version: ${{ matrix.ruby-version }}
-          bundler-cache: true
-      - name: Install ruby
-        run: ruby ci
-      - name: run tests
-        run: ruby test
-
+          ruby: [ '2.5', '2.6' ]
+      name: Ruby ${{ matrix.ruby }} sample
+      steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-ruby@v1
+          with:
+            ruby-version: ${{ matrix.ruby }}
+        - run: ruby practice.rb
 
