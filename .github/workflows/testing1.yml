@@ -1,20 +1,12 @@
-name: testing
-
+name: My workflow
 on: [push, pull_request]
-
 jobs:
-    build:
-      runs-on: ubuntu-16.04
-      strategy:
-        matrix:
-          ruby: [ '2.5', '2.6' ]
-      name: Ruby ${{ matrix.ruby }} sample
-      steps:
-        - name: chechout
-          uses: actions/checkout@v2
-        - name: setup
-          uses: actions/setup-ruby@v1
-          with:
-            ruby-version: ${{ matrix.ruby }}
-        - run: ruby practice.rb
-
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.3' # Not needed with a .ruby-version file
+        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - run: bundle exec rake
