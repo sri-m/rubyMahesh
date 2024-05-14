@@ -2,7 +2,7 @@ name: My workflow
 on: [push, pull_request]
 defaults:
     run:
-     working-directory: ./MAHESHRUBY
+     working-directory: /
 jobs:
   check_single_file:
     runs-on: ubuntu-latest
