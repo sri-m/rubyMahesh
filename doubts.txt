@@ -1,0 +1,11 @@
+in ruby every thing is an object
+object has instance methods
+
+File: new, open, rename, delete, exist? __FILE__, read, write, close
+mode: r+ => read and write , w => write, r => read
+
+f1 = File.new('mahesh.rb', 'w')
+f1.close
+
+#second line write
+#1000 lines word extract
